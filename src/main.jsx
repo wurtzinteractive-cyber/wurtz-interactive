@@ -14,9 +14,9 @@ const NAV = [
   ["contact", "Contact"],
 ];
 
-const VIDEO_HOPPITY_HOP = "/assets/Hoppity-Hop/Hoppity-Hop-Video.mp4";
-const VIDEO_HANDMADE_FACES = "/assets/HandMade-Faces/Handmade-Faces-Video.mp4";
-const VIDEO_ELDER_LEAF = "/assets/Elder-Leaf/Elder-Leaf-Video.mp4";
+const VIDEO_HOPPITY_HOP = "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Hoppity-Hop-Video.mp4";
+const VIDEO_HANDMADE_FACES = "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Handmade-Faces-Video.mp4";
+const VIDEO_ELDER_LEAF = "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Elder-Leaf-Video.mp4";
 
 /* Each game carries its own reel. The Handmade Faces files have spaces and
    brackets in their names, so the spaces are percent-encoded here. */
@@ -716,7 +716,7 @@ function Home() {
         preload="auto"
         aria-hidden="true"
       >
-        <source src="/assets/home-video.mp4" type="video/mp4" />
+        <source src="https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/home-video.mp4" type="video/mp4" />
       </video>
 
       <div className="home-video-overlay" />

@@ -1,0 +1,2484 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg: #0b0b0b;
+  --fg: #f4f0e8;
+  --muted: #99948b;
+  --line: rgba(244, 240, 232, .18);
+  --accent: #230c2b;
+  --page-x: clamp(18px, 4vw, 58px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(91, 25, 91, 0.65) 0%,
+      transparent 38%),
+
+    radial-gradient(circle at 50% 80%,
+      rgba(142, 24, 91, 0.55) 0%,
+      transparent 42%),
+    linear-gradient(135deg,
+      #090512 0%,
+      #180b25 25%,
+      #271039 48%,
+      #101b3d 72%,
+      #080817 100%);
+
+  background-attachment: fixed;
+
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+}
+
+button,
+a {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.site {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.site {
+  position: relative;
+  min-height: 100vh;
+  background: transparent;
+  isolation: isolate;
+}
+
+.site::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(ellipse at 20% 25%,
+      rgba(163, 38, 130, 0.18),
+      transparent 35%),
+    radial-gradient(ellipse at 80% 65%,
+      rgba(41, 69, 165, 0.18),
+      transparent 38%);
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  background: #230c2b;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--accent);
+  color: #230c2b;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.intro-inner {
+  width: min(92vw, 1400px);
+  text-align: center;
+}
+
+.intro-logo {
+  display: flex;
+  justify-content: center;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.intro-logo img {
+  display: block;
+  width: min(78vw, 880px);
+  height: auto;
+  object-fit: contain;
+}
+
+.intro-line {
+  height: 2px;
+  background: #230c2b;
+  margin: 26px auto 14px;
+  width: min(620px, 65vw);
+  transform-origin: left;
+}
+
+.intro-small {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .16em;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px var(--page-x);
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  width: 132px;
+}
+
+.wordmark img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.header nav {
+  display: flex;
+  gap: 24px;
+}
+
+.header nav button {
+  color: #fff;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  opacity: .86;
+  transition: opacity .2s, transform .2s;
+}
+
+.header nav button:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.section {
+  position: relative;
+  min-height: 100svh;
+  padding: 140px var(--page-x) 80px;
+  overflow: hidden;
+}
+
+.home-section {
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.home-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at 50% 55%, black 25%, transparent 78%);
+}
+
+.noise {
+  position: absolute;
+  inset: -50%;
+  opacity: .08;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+  animation: noise .28s steps(2) infinite;
+}
+
+@keyframes noise {
+  0% {
+    transform: translate3d(0, 0, 0)
+  }
+
+  25% {
+    transform: translate3d(-2%, 1%, 0)
+  }
+
+  50% {
+    transform: translate3d(1%, -2%, 0)
+  }
+
+  75% {
+    transform: translate3d(2%, 2%, 0)
+  }
+
+  100% {
+    transform: translate3d(-1%, 0, 0)
+  }
+}
+
+.home-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  padding-bottom: 5vh;
+}
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(66px, 12vw, 185px);
+  line-height: .79;
+  letter-spacing: -.085em;
+  margin: 0;
+  max-width: 12ch;
+  font-weight: 600;
+}
+
+h2 {
+  margin-left: clamp(0px, 7vw, 135px);
+  font-size: clamp(38px, 6vw, 80px);
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px currentColor;
+}
+
+[data-word] {
+  display: inline-block;
+}
+
+.home-bottom {
+  margin-top: 42px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 10px;
+  color: #f4f434;
+}
+
+.scroll-arrow {
+  font-size: 22px;
+  color: #f4f434;
+  animation: float 1.6s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.home-corner {
+  position: absolute;
+  z-index: 4;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.top-left {
+  top: 110px;
+  left: var(--page-x);
+}
+
+.bottom-right {
+  right: var(--page-x);
+  bottom: 36px;
+}
+
+.about-section {
+  background: #e8e5dc;
+  min-height: 120svh;
+}
+
+.about-section .eyebrow,
+.about-section .about-copy {
+  color: #6d695f;
+}
+
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 8vw;
+  margin-top: 20vh;
+  max-width: 1400px;
+}
+
+.about-statement p {
+  font-size: clamp(34px, 5.2vw, 76px);
+  line-height: .95;
+  letter-spacing: -.06em;
+  max-width: 14ch;
+}
+
+.about-copy {
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 430px;
+}
+
+.about-copy p+p {
+  margin-top: 80px;
+}
+
+.about-strip {
+  position: absolute;
+  left: var(--page-x);
+  right: var(--page-x);
+  bottom: 30px;
+  border-top: 1px solid rgba(11, 11, 11, .2);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #6d695f;
+}
+
+.games-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-bottom: 140px;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(91, 25, 91, 0.65) 0%,
+      transparent 38%),
+
+    radial-gradient(circle at 50% 80%,
+      rgba(142, 24, 91, 0.55) 0%,
+      transparent 42%),
+
+    linear-gradient(135deg,
+      #090512 0%,
+      #180b25 25%,
+      #271039 48%,
+      #101b3d 72%,
+      #080817 100%);
+
+  background-attachment: fixed;
+}
+
+.games-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.games-title h2 {
+  text-align: right;
+}
+
+.games-list {
+  margin-top: 16vh;
+  display: grid;
+  gap: 80px;
+}
+
+.game-card {
+  opacity: 0;
+}
+
+.game-card:nth-child(2) {
+  padding-left: 11vw;
+}
+
+.game-card:nth-child(3) {
+  padding-left: 5vw;
+}
+
+.game-art {
+  position: relative;
+  height: clamp(360px, 57vw, 720px);
+  overflow: hidden;
+  background: #151515;
+  border: 1px solid var(--line);
+  isolation: isolate;
+}
+
+.game-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 55%, transparent 0 28%, rgba(0, 0, 0, .4) 85%);
+  z-index: 4;
+}
+
+.art-one {
+  background: linear-gradient(125deg, #ec6200, #8118a7 48%, #0b0b0b 80%);
+}
+
+.art-two {
+  background: linear-gradient(135deg, #9bd9ff 0%, #344a66 40%, #111 82%);
+}
+
+.art-three {
+  background: linear-gradient(125deg, #c9ff43 0%, #5e7c0e 32%, #10150a 75%);
+}
+
+.art-sun {
+  position: absolute;
+  width: 22vw;
+  max-width: 300px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f4f0e8;
+  top: 16%;
+  right: 17%;
+  filter: blur(.3px);
+  mix-blend-mode: screen;
+}
+
+.art-ring {
+  position: absolute;
+  width: 45%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, .75);
+  border-radius: 50%;
+  left: 12%;
+  top: 34%;
+  transform: rotate(22deg);
+}
+
+.art-line {
+  position: absolute;
+  height: 1px;
+  background: rgba(255, 255, 255, .7);
+  width: 76%;
+  left: 10%;
+}
+
+.line-one {
+  top: 57%;
+  transform: rotate(-17deg);
+}
+
+.line-two {
+  top: 69%;
+  transform: rotate(8deg);
+  width: 55%;
+  left: 27%;
+}
+
+.art-label {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  z-index: 5;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: 999px;
+  padding: 10px 14px;
+}
+
+.game-info {
+  display: grid;
+  grid-template-columns: 80px 1fr 48px;
+  gap: 22px;
+  align-items: start;
+  padding: 20px 0 0;
+}
+
+.game-number,
+.game-info p {
+  color: var(--muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.game-info h3 {
+  font-size: clamp(32px, 4vw, 58px);
+  letter-spacing: -.06em;
+  line-height: .9;
+  margin-bottom: 10px;
+}
+
+.game-description {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  max-width: 500px;
+  margin-top: 16px;
+}
+
+.circle-button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: .35s ease;
+}
+
+.circle-button:hover {
+  background: var(--accent);
+  color: #0b0b0b;
+  border-color: var(--accent);
+  transform: rotate(45deg);
+}
+
+.contact-section {
+  position: relative;
+
+  display: flex;
+  align-items: flex-end;
+
+  min-height: 92svh;
+
+  color: #fff;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(91, 25, 91, 0.65) 0%,
+      transparent 38%),
+
+    radial-gradient(circle at 50% 80%,
+      rgba(142, 24, 91, 0.55) 0%,
+      transparent 42%),
+
+    linear-gradient(135deg,
+      #090512 0%,
+      #180b25 25%,
+      #271039 48%,
+      #101b3d 72%,
+      #080817 100%);
+
+  background-attachment: fixed;
+}
+
+.contact-panel {
+  width: 100%;
+}
+
+.contact-panel .eyebrow {
+  color: rgba(11, 11, 11, .55);
+}
+
+.contact-panel h2 {
+  font-size: clamp(80px, 18vw, 260px);
+}
+
+.contact-panel .outline {
+  -webkit-text-stroke-color: #0b0b0b;
+}
+
+.email-link {
+  display: inline-block;
+  margin-top: 5vh;
+  font-size: clamp(20px, 3vw, 42px);
+  letter-spacing: -.04em;
+  border-bottom: 1px solid #0b0b0b;
+  transition: opacity .2s;
+}
+
+.email-link:hover {
+  opacity: .55;
+}
+
+.contact-meta {
+  border-top: 1px solid rgba(11, 11, 11, .24);
+  margin-top: 7vh;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px var(--page-x);
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7e7a72;
+  background: #0b0b0b;
+}
+
+.cursor-glow {
+  position: fixed;
+  z-index: 3;
+  width: 240px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  translate: -50% -50%;
+  background: radial-gradient(circle, rgba(198, 255, 0, .09), transparent 68%);
+  filter: blur(2px);
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 800px) {
+  .header {
+    padding-top: 18px;
+  }
+
+  .header nav {
+    gap: 12px;
+  }
+
+  .header nav button {
+    font-size: 9px;
+  }
+
+  .wordmark img {
+    width: 92px;
+  }
+
+  .section {
+    padding-top: 110px;
+  }
+
+  h1 {
+    font-size: clamp(60px, 17vw, 120px);
+  }
+
+  h2 {
+    font-size: clamp(58px, 15vw, 110px);
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 70px;
+    margin-top: 14vh;
+  }
+
+  .about-copy p+p {
+    margin-top: 40px;
+  }
+
+  .about-strip span:nth-child(n+3) {
+    display: none;
+  }
+
+  .games-title {
+    display: block;
+  }
+
+  .games-title h2 {
+    text-align: left;
+  }
+
+  .game-card:nth-child(2),
+  .game-card:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .game-art {
+    height: 65vw;
+    min-height: 320px;
+  }
+
+  .game-info {
+    grid-template-columns: 40px 1fr 42px;
+    gap: 12px;
+  }
+
+  .game-number {
+    font-size: 9px;
+  }
+
+  .game-info h3 {
+    font-size: 38px;
+  }
+
+  .contact-section {
+    min-height: 80svh;
+  }
+
+  .contact-meta {
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .cursor-glow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100px;
+
+  padding: 0 35px;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 1000;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+
+  pointer-events: auto;
+}
+
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger-wrapper {
+  position: fixed;
+  top: 22px;
+  left: var(--page-x);
+  z-index: 1101;
+  mix-blend-mode: difference;
+}
+
+.menu-button {
+  width: 50px;
+  height: 50px;
+
+  padding: 8px 0;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 7px;
+
+  cursor: pointer;
+
+  position: relative;
+  z-index: 1101;
+}
+
+.menu-button span {
+  display: block;
+
+  width: 48px;
+  height: 2px;
+
+  background: #fff;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+
+/* Hamburger → X */
+
+.menu-button.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* =========================
+   TOP NAVIGATION
+========================= */
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  overflow: visible;
+  pointer-events: auto;
+  margin-left: calc(var(--page-x) + 58px);
+}
+
+.top-nav button {
+  border: none;
+  background: transparent;
+
+  color: #fff;
+
+  padding: 0;
+  position: relative;
+  isolation: isolate;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.top-nav button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scaleX(0.8);
+  width: 160%;
+  height: 80px;
+  background: url("/assets/LineHighlight.png") center/100% 100% no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.top-nav button:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scaleX(1);
+}
+
+.top-nav button:hover {
+  opacity: 1;
+  color: #111;
+}
+
+
+/* =========================
+   CENTER LOGO
+========================= */
+
+.wordmark {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  /* let the button size to the logo, otherwise the earlier
+     `width: 132px` rule offsets the -50% centring */
+  width: auto;
+
+  transform: translate(-50%, -50%);
+
+  border: none;
+  background: transparent;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+  z-index: 60;
+}
+
+.wordmark img {
+  display: block;
+
+  width: 155px;
+  height: auto;
+}
+
+
+/* =========================
+   SIDE MENU
+========================= */
+
+.nav-menu {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: min(420px, 82vw);
+  height: 100vh;
+
+  background: rgba(11, 5, 20, 0.35);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  z-index: 1050;
+
+  display: flex;
+  align-items: center;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  transform: translateX(-100%);
+
+  transition:
+    transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Was nested inside .nav-menu, which resolved to `.nav-menu .nav-backdrop`
+   and never matched — the backdrop is a sibling. */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 1040;
+  cursor: pointer;
+}
+
+.nav-menu.open {
+  transform: translateX(0);
+}
+
+.nav-menu nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: 0 40px 0 60px;
+
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* ---- top-level label ---- */
+
+.nav-main {
+  border: none;
+  background: transparent;
+
+  color: #fff;
+  padding: 6px 0;
+
+  font-family: inherit;
+  font-size: 40px;
+  font-weight: 700;
+
+  letter-spacing: -0.04em;
+
+  cursor: pointer;
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: 100%;
+
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.nav-main:hover {
+  transform: translateX(10px);
+}
+
+.nav-chevron {
+  font-size: 0.55em;
+  font-weight: 400;
+  opacity: 0.55;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.nav-group--open .nav-chevron {
+  transform: none; /* the symbol already changes: + → − */
+}
+
+/* ---- sub-items ---- */
+
+.nav-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Outer wrapper: single-child grid — this is what collapses */
+.nav-sub-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-group--open .nav-sub-wrap {
+  grid-template-rows: 1fr;
+}
+
+/* Inner ul: the single grid child — must have min-height:0 so 0fr → 0px */
+.nav-sub {
+  min-height: 0;
+  overflow: hidden;
+
+  list-style: none;
+  margin: 0;
+  padding: 0 0 10px 4px;
+}
+
+.nav-sub-item {
+  display: block;
+  width: 100%;
+
+  border: none;
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.55);
+  padding: 5px 0 5px 18px;
+
+  font-family: inherit;
+  font-size: clamp(13px, 1.4vw, 17px);
+  font-weight: 400;
+
+  letter-spacing: 0.04em;
+  text-align: left;
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-sub-item::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  opacity: 0.3;
+  font-size: 0.8em;
+}
+
+.nav-sub-item:hover {
+  color: #fff;
+  transform: translateX(6px);
+}
+
+
+/* =========================
+   HEADER — NARROW DESKTOP
+   The left nav runs into the centred logo below ~1100px
+   (also what a browser zoom step produces), so scale it down.
+========================= */
+
+@media (max-width: 1150px) {
+  .header {
+    height: 86px;
+    padding: 0 22px;
+  }
+
+  .header-left {
+    gap: 26px;
+  }
+
+  .top-nav {
+    gap: 26px;
+  }
+
+  .top-nav button {
+    font-size: 13px;
+  }
+
+  .menu-button {
+    width: 40px;
+    height: 40px;
+    gap: 6px;
+  }
+
+  .menu-button span {
+    width: 40px;
+  }
+
+  .menu-button.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-button.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .wordmark img {
+    width: 124px;
+  }
+}
+
+
+/* Below this the inline nav can't fit — hamburger takes over.
+   Using .header .top-nav (specificity 0-2-0) to beat the base rule
+   .header nav { display:flex } (0-1-1) which would otherwise win. */
+
+@media (max-width: 900px) {
+  .header .top-nav {
+    display: none;
+  }
+
+  .wordmark img {
+    width: 108px;
+  }
+}
+
+/* =========================================
+   GAMES SLIDER
+========================================= */
+
+.games-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-bottom: 140px;
+}
+
+.games-title {
+  position: relative;
+  z-index: 5;
+}
+
+
+/* Slider viewport */
+
+.games-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+
+/* Horizontal track */
+
+.games-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  width: max-content;
+
+  padding-left: 0;
+
+  touch-action: pan-y;
+
+  cursor: grab;
+
+  will-change: transform;
+}
+
+.games-track.dragging {
+  cursor: grabbing;
+}
+
+
+/* Individual slides */
+
+.game-slide {
+  flex: 0 0 clamp(320px, 62vw, 1000px);
+
+  transform-origin: center center;
+
+  opacity: 0.32;
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.game-slide.active {
+  opacity: 1;
+}
+
+
+/* Image */
+
+.game-image-wrap {
+  position: relative;
+
+  /* was a hard 800px, which overflowed the fluid slide on smaller screens */
+  width: min(100%, 800px);
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #111;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  user-select: none;
+
+  pointer-events: none;
+
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.game-slide:hover .game-image {
+  transform: scale(1.025);
+}
+
+
+/* Game name */
+
+.game-caption {
+  display: flex;
+  align-items: baseline;
+
+  gap: 22px;
+
+  margin-top: 28px;
+
+  color: white;
+}
+
+.game-number {
+  font-family: 'Space Mono', monospace;
+
+  font-size: 14px;
+
+  opacity: 0.55;
+}
+
+.game-caption h3 {
+  margin: 0;
+
+  font-size: clamp(30px, 3vw, 54px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* =========================================
+   DRAG INDICATOR
+========================================= */
+
+.drag-indicator {
+  position: absolute;
+
+  left: 50%;
+  top: 43%;
+
+  transform: translate(-50%, -50%);
+
+  width: 130px;
+  height: 130px;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  color: white;
+
+  font-size: 14px;
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  transition: opacity 0.4s ease;
+}
+
+.drag-line {
+  width: 20px;
+  height: 1px;
+
+  background: white;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.games-progress {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 65px;
+}
+
+.progress-current,
+.progress-total {
+  font-family: 'Space Mono', monospace;
+
+  font-size: 13px;
+
+  opacity: 0.65;
+}
+
+.progress-track {
+  position: relative;
+
+  width: 280px;
+  height: 2px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background: #fff;
+
+  transition: width 0.5s ease;
+}
+
+@media (max-width: 900px) {
+
+  .games-slider {
+    margin-top: 45px;
+  }
+
+  .games-track {
+    gap: 25px;
+  }
+
+  .game-slide {
+    flex-basis: 82vw;
+  }
+
+  .drag-indicator {
+    width: 100px;
+    height: 100px;
+  }
+
+  .progress-track {
+    width: 180px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .game-slide {
+    flex-basis: 86vw;
+  }
+
+  .game-caption {
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .game-caption h3 {
+    font-size: 30px;
+  }
+
+  .drag-indicator {
+    width: 85px;
+    height: 85px;
+    font-size: 12px;
+  }
+
+}
+
+/* =========================================
+   HOME BACKGROUND VIDEO
+========================================= */
+
+.home-section {
+  position: relative;
+  overflow: hidden;
+  /* fallback when video can't autoplay (e.g. iOS Low Power Mode) */
+  background: linear-gradient(135deg, #090512 0%, #180b25 25%, #271039 48%, #101b3d 72%, #080817 100%);
+}
+
+
+/* Video */
+
+.home-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* Dark overlay above video */
+
+.home-video-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.38);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* Existing visual layers */
+
+.home-grid,
+.noise,
+.home-orb {
+  z-index: 2;
+}
+
+
+/* Main content above everything */
+
+.home-copy,
+.home-corner {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* =========================================
+   HOME VIDEO — MOBILE
+   On portrait phones a 16:9 landscape video
+   is cropped top/bottom by object-fit:cover.
+   Shifting to center top keeps the visually
+   interesting upper portion in frame, matching
+   the same mobile treatment given to game videos.
+========================================= */
+
+@media (max-width: 700px) {
+  .home-video {
+    object-position: center top;
+  }
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 100px 0 180px;
+   background:
+    radial-gradient(circle at 15% 20%,
+      rgba(91, 25, 91, 0.65) 0%,
+      transparent 38%),
+
+    radial-gradient(circle at 50% 80%,
+      rgba(142, 24, 91, 0.55) 0%,
+      transparent 42%),
+
+    linear-gradient(135deg,
+      #090512 0%,
+      #180b25 25%,
+      #271039 48%,
+      #101b3d 72%,
+      #080817 100%);
+
+  overflow: hidden;
+}
+
+.about-header,
+.about-cards {
+  position: relative;
+  z-index: 2;
+}
+
+.about-header {
+  padding-inline: var(--page-x);
+}
+
+
+/* =========================================
+   ABOUT CARDS
+========================================= */
+
+.about-cards {
+  /* About_Background.PNG carries a lot of transparent padding: the opaque
+     shape is only 78.6% of the file's width and 69.1% of its height.
+     The card box below is sized to the VISIBLE shape, and ::before is
+     inflated by exactly that padding — so the card border box and the
+     painted blob always coincide, at any width or zoom level. */
+  --card-max: 1050px;
+
+  /* 1 / 0.786 — leave room for the inflated ::before at narrow widths */
+  --card-w: min(var(--card-max), calc((100vw - 32px) / 1.28));
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(90px, 11vw, 160px);
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.about-card {
+  position: relative;
+  margin: 0 auto;
+
+  width: var(--card-w);
+
+  display: grid;
+  align-items: center;
+  gap: 3%;
+
+  /* percentages, so the inset from the blob edge is identical at every size */
+  padding-block: 2.6%;
+  padding-inline: 5%;
+
+  background: transparent;
+
+  min-height: 0;
+  height: auto;
+
+  overflow: visible;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.about-card::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  /* Cancels the PNG's transparent margins so the painted shape lands exactly
+     on the card's border box. left/right are % of the card width, top/bottom
+     % of its height — both scale automatically. */
+  left: -13.7%;
+  right: -13.6%;
+  top: -19.2%;
+  bottom: -25.5%;
+
+  background-image: url("/assets/AboutUs/About_Background.PNG");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   ALTERNATE BACKGROUND
+   1 = normal
+   2 = mirrored
+   3 = normal
+   4 = mirrored
+========================================= */
+
+.about-card:nth-child(even)::before {
+  transform: scaleX(-1);
+}
+
+
+/* =========================================
+   FIRST CARD
+   INFO → IMAGE
+========================================= */
+
+.about-card-left {
+  /* image column is 32% of the content box = 28.8% of the card,
+     matching the proportions of the original fixed-pixel layout */
+  grid-template-columns: minmax(0, 1fr) 32%;
+}
+
+
+/* Info on LEFT */
+.about-card-left .about-card-info {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+/* Image on RIGHT */
+.about-card-left .about-card-image {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+/* =========================================
+   SECOND CARD
+   IMAGE → INFO
+========================================= */
+
+.about-card-right {
+  grid-template-columns: 32% minmax(0, 1fr);
+}
+
+
+/* Image on LEFT */
+.about-card-right .about-card-image {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+/* Info on RIGHT */
+.about-card-right .about-card-info {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.about-card-image {
+  position: relative;
+
+  width: auto;
+  height: auto;
+
+  overflow: hidden;
+
+  border: none !important;
+  border-radius: 0;
+
+  z-index: 2;
+}
+
+/* Common image styling */
+.about-card-image img {
+  display: block;
+
+  /* fills its column, so it scales with the card instead of a fixed 300x290 */
+  width: 100%;
+  height: auto;
+  aspect-ratio: 300 / 290;
+  object-fit: cover;
+
+  border: none !important;
+  border-radius: 0;
+}
+
+
+/* The blob's raised half sits under the image and its lower shelf under the
+   text, so the text is nudged inward to sit clear of the notch — the same
+   offsets the old margin-left: 170px / margin-right: 305px produced, but
+   expressed as a fraction of the card so they hold at any size. */
+
+.about-card-left .about-card-info {
+  padding-left: calc(var(--card-w) * 0.089);
+}
+
+.about-card-right .about-card-info {
+  padding-left: calc(var(--card-w) * 0.134);
+}
+
+
+/* =========================================
+   INFO
+========================================= */
+
+.about-card-info {
+  position: relative;
+
+  width: 100%;
+  min-height: 0;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+  background: transparent;
+
+  border: none !important;
+  border-radius: 0;
+
+  z-index: 2;
+}
+
+.about-card-designation {
+  display: block;
+
+  margin-bottom: calc(var(--card-w) * 0.019);
+
+  font-size: clamp(10px, calc(var(--card-w) * 0.0124), 13px);
+  line-height: 1.4;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Number */
+
+.about-card-number {
+  position: absolute;
+
+  top: 25px;
+  left: 30px;
+
+  font-size: 12px;
+  letter-spacing: 0.12em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* Heading */
+
+.about-card-info h3 {
+  font-size: clamp(20px, calc(var(--card-w) * 0.0333), 35px);
+  margin-top: calc(var(--card-w) * 0.0333);
+  margin-bottom: calc(var(--card-w) * 0.017);
+  line-height: 1.15;
+}
+
+
+/* Paragraph */
+
+.about-card-info p {
+  max-width: 48ch;
+
+  margin: 0;
+
+  font-size: clamp(13px, calc(var(--card-w) * 0.0162), 17px);
+  line-height: 1.55;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================
+   EVEN CARD NUMBER
+========================================= */
+
+.about-card-right .about-card-number {
+  left: 30px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .about-cards {
+    gap: 100px;
+  }
+
+  .about-card,
+  .about-card-left,
+  .about-card-right {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    justify-items: center;
+    text-align: center;
+
+    padding-block: 8%;
+    gap: 24px;
+
+    direction: ltr;
+  }
+
+  /* stacked and centred — the inner offsets only make sense side by side */
+  .about-card-left .about-card-info,
+  .about-card-right .about-card-info {
+    padding-left: 0;
+  }
+
+
+  /* -------------------------
+     FIRST CARD
+     INFO → IMAGE
+  ------------------------- */
+
+  .about-card-left .about-card-info {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .about-card-left .about-card-image {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+
+  /* -------------------------
+     SECOND CARD
+     IMAGE → INFO
+  ------------------------- */
+
+  .about-card-right .about-card-image {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .about-card-right .about-card-info {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+
+  /* Image */
+
+  .about-card-left .about-card-image,
+  .about-card-right .about-card-image {
+    justify-self: center;
+    min-height: 0;
+  }
+
+  .about-card-image img {
+    width: min(100%, 320px);
+    height: auto;
+  }
+
+
+  /* Info */
+
+  .about-card-info {
+    align-items: center;
+    padding: 30px 12px 10px;
+  }
+
+  .about-card-info h3 {
+    font-size: clamp(24px, 6vw, 34px);
+  }
+
+  .about-card-info p {
+    font-size: 15px;
+    max-width: 46ch;
+  }
+
+
+  /* Number */
+
+  .about-card-number,
+  .about-card-right .about-card-number {
+    top: 20px;
+    left: 25px;
+    right: auto;
+  }
+
+
+  /* Background — offsets come from --blob-x / --blob-y, no override needed */
+}
+
+/* =========================================
+   GAME CARD → CLICKABLE
+========================================= */
+
+.game-slide {
+  cursor: pointer;
+}
+
+.games-track.dragging .game-slide {
+  cursor: grabbing;
+}
+
+.game-slide:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 8px;
+}
+
+.game-open-hint {
+  position: absolute;
+  z-index: 5;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.94);
+
+  padding: 14px 26px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.game-slide.active:hover .game-open-hint {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.games-track.dragging .game-open-hint {
+  opacity: 0;
+}
+
+
+/* =========================================
+   GAME DETAIL PAGE
+========================================= */
+
+.game-page {
+  position: relative;
+  padding-bottom: clamp(80px, 10vw, 160px);
+}
+
+
+/* Hero — full width, landscape, edge to edge */
+
+.game-hero {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 92svh;
+
+  overflow: hidden;
+  background: #000;
+}
+
+.game-hero-video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Blends the bottom of the video into the page background */
+.game-hero-fade {
+  position: absolute;
+  inset: auto 0 0 0;
+
+  height: 28%;
+
+  background: linear-gradient(to bottom,
+      transparent,
+      rgba(9, 5, 18, 0.75) 60%,
+      #090512 100%);
+
+  pointer-events: none;
+}
+
+
+/* Name + description */
+
+.game-page-inner {
+  width: min(1100px, 100% - (var(--page-x) * 2));
+  margin: 0 auto;
+}
+
+.game-back {
+  display: inline-block;
+
+  margin-top: clamp(28px, 4vw, 48px);
+
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #f4f434;
+
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.game-back:hover {
+  color: #fff;
+  transform: translateX(-4px);
+}
+
+.game-intro {
+  margin-top: clamp(36px, 5vw, 64px);
+}
+
+.game-page-number {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+
+  color: var(--muted);
+}
+
+.game-page-title {
+  max-width: none;
+
+  margin: 0 0 clamp(20px, 3vw, 34px);
+
+  font-size: clamp(44px, 7vw, 104px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+}
+
+.game-page-description {
+  max-width: 62ch;
+
+  margin: 0;
+
+  font-size: clamp(15px, 1.3vw, 19px);
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================
+   BLOCKS (Screenshots / Meet the Team)
+========================================= */
+
+.game-block {
+  margin-top: clamp(70px, 9vw, 140px);
+}
+
+.game-block-head {
+  width: min(1100px, 100% - (var(--page-x) * 2));
+  margin: 0 auto clamp(26px, 3.5vw, 44px);
+
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.game-block-head h2 {
+  /* the global h2 rule adds a large left margin — not wanted here */
+  margin: 0;
+
+  font-size: clamp(28px, 3.6vw, 54px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.game-block-hint {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #f4f434;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   SCREENSHOT CAROUSEL
+========================================= */
+
+.shot-track {
+  display: flex;
+  gap: clamp(14px, 1.6vw, 28px);
+
+  /* full-bleed strip, but the first/last shot lines up with the headings */
+  padding-inline: max(var(--page-x), calc((100% - 1100px) / 2));
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+
+  /* No scroll-snap — momentum is handled by GSAP so snap would fight it */
+
+  /* let vertical page scrolling through the strip still work on touch */
+  touch-action: pan-y;
+
+  cursor: grab;
+
+  scrollbar-width: none;
+}
+
+.shot-track::-webkit-scrollbar {
+  display: none;
+}
+
+.shot-track.dragging {
+  cursor: grabbing;
+}
+
+.shot-track:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 6px;
+}
+
+.shot {
+  flex: 0 0 clamp(260px, 40vw, 620px);
+
+  margin: 0;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+  background: #111;
+
+}
+
+.shot img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+
+/* =========================================
+   TEAM LIST
+========================================= */
+
+.team-list {
+  width: min(1100px, 100% - (var(--page-x) * 2));
+  margin: 0 auto;
+  padding: 0;
+
+  list-style: none;
+}
+
+.team-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: clamp(20px, 4vw, 60px);
+
+  padding: clamp(18px, 2.2vw, 28px) 0;
+
+  border-top: 1px solid var(--line);
+}
+
+.team-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.team-name {
+  font-size: clamp(18px, 2vw, 30px);
+  letter-spacing: -0.03em;
+}
+
+/* one role per line, stacked against the right edge of the row */
+.team-roles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+
+  text-align: right;
+}
+
+.team-role {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(10px, 1vw, 13px);
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+
+/* =========================================
+   NOT FOUND
+========================================= */
+
+.game-missing {
+  display: grid;
+  place-content: center;
+  gap: 24px;
+
+  text-align: center;
+}
+
+
+@media (max-width: 700px) {
+
+  .game-hero {
+    /* a 16:9 strip gets very short on a phone — give it more presence */
+    aspect-ratio: 4 / 3;
+  }
+
+  .game-block-head {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .team-roles {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+
+/* =========================
+   PAGE FOOTER
+========================= */
+
+.page-footer {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  padding: clamp(48px, 7vw, 80px) var(--page-x);
+
+  display: flex;
+  align-items: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color:#230c2b;
+}
+
+.page-footer-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.page-footer-logo {
+  height: 150px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.page-footer-email {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.page-footer-email:hover {
+  color: #f4f434;
+}
+
+.page-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.page-footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.page-footer-social-link:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.page-footer-social-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
+
+/* =========================
+   SOCIAL BAR
+========================= */
+
+.social-bar {
+  position: fixed;
+  right: 24px;
+  bottom: 32px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.social-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  text-decoration: none;
+}
+
+.social-highlight {
+  position: absolute;
+  inset: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.75);
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.social-link:hover .social-highlight {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.22s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.12);
+}
+
+.social-link[aria-label="Itch.io"] .social-icon,
+.social-link[aria-label="Email"] .social-icon {
+  width: 58px;
+  height: 58px;
+}
+
+@media (max-width: 900px) {
+  .social-bar {
+    right: 12px;
+    gap: 20px;
+  }
+
+  .social-link {
+    width: 34px;
+    height: 34px;
+  }
+
+  .social-icon {
+    width: 22px;
+    height: 22px;
+  }
+}

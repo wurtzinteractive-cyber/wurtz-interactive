@@ -2460,12 +2460,6 @@ footer {
   transform: scale(1.12);
 }
 
-.social-link[aria-label="Itch.io"] .social-icon,
-.social-link[aria-label="Email"] .social-icon {
-  width: 58px;
-  height: 58px;
-}
-
 @media (max-width: 900px) {
   .social-bar {
     right: 12px;
@@ -2473,12 +2467,12 @@ footer {
   }
 
   .social-link {
-    width: 34px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
   }
 
   .social-icon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 }

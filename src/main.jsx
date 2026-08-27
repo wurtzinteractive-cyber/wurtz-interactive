@@ -48,7 +48,7 @@ const GAMES = [
   {
     number: "01",
     slug: "hoppity-hop",
-    title: "Hoppity Hop",
+    title: "Hoppity-Hop",
     image: "/assets/OurGames/hoppity-hop.png",
     video: VIDEO_HOPPITY_HOP,
     screenshots: SHOTS_HOPPITY_HOP,
@@ -107,6 +107,11 @@ const GAMES = [
           "Cinematics",
         ],
       },
+    ],
+    specialThanks: [
+      { name: "Amit Rathor", role: "Character Animations" },
+      { name: "Krishna Upadhye", role: "Game Posters" },
+      { name: "Daniel Awana", role: "Sound Designer" },
     ],
   },
   {
@@ -851,6 +856,12 @@ function Games() {
     });
   };
 
+  /* Center the active slide once the DOM has laid out */
+  useEffect(() => {
+    goToSlide(activeIndex, false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const handleResize = () => {
       goToSlide(activeIndex, false);
@@ -937,7 +948,7 @@ function Games() {
         </h2>
       </div>
 
-      <div className="games-slider">
+      <div className="games-slider" data-lenis-prevent>
         <div
           ref={trackRef}
           className="games-track"
@@ -1214,6 +1225,26 @@ function GamePage({ game }) {
           ))}
         </ul>
       </section>
+
+      {/* Special Thanks — only shown for games that have this data */}
+      {game.specialThanks?.length > 0 && (
+        <section className="game-block game-special-thanks">
+          <div className="game-block-head">
+            <h2>Special Thanks</h2>
+          </div>
+
+          <ul className="team-list">
+            {game.specialThanks.map((person) => (
+              <li className="team-row" key={person.name}>
+                <span className="team-name">{person.name}</span>
+                <span className="team-roles">
+                  <span className="team-role">{person.role}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </article>
   );
 }

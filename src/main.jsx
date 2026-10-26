@@ -14,9 +14,13 @@ const NAV = [
   ["contact", "Contact"],
 ];
 
-const VIDEO_HOPPITY_HOP = "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Hoppity-Hop-Video.mp4";
-const VIDEO_HANDMADE_FACES = "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Handmade-Faces-Video.mp4";
-const VIDEO_ELDER_LEAF = "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Elder-Leaf-Video.mp4";
+const VIDEO_HOPPITY_HOP =
+  "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Hoppity-Hop-Video.mp4";
+const VIDEO_HANDMADE_FACES =
+  "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Handmade-Faces-Video.mp4";
+const VIDEO_ELDER_LEAF =
+  "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Elder-Leaf-Video.mp4";
+const VIDEO_WORKAROUND = "https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/Workaround-video.mp4";
 
 /* Each game carries its own reel. The Handmade Faces files have spaces and
    brackets in their names, so the spaces are percent-encoded here. */
@@ -25,6 +29,14 @@ const SHOTS_HOPPITY_HOP = [
   "/assets/Hoppity-Hop/Hoppity-Hop-SS-2.jpeg",
   "/assets/Hoppity-Hop/Hoppity-Hop-SS-3.jpeg",
   "/assets/Hoppity-Hop/Hoppity-Hop-SS-4.jpeg",
+];
+
+const SHOTS_WORKAROUND = [
+  "/assets/Workaround-FindOut/Workaround-1.jpeg",
+  "/assets/Workaround-FindOut/Workaround-2.jpeg",
+  "/assets/Workaround-FindOut/Workaround-3.jpeg",
+  "/assets/Workaround-FindOut/Workaround-4.jpeg",
+  "/assets/Workaround-FindOut/Workaround-5.jpeg",
 ];
 
 const SHOTS_HANDMADE_FACES = [
@@ -41,7 +53,6 @@ const SHOTS_ELDER_LEAF = [
   "/assets/Elder-Leaf/Elder-Leaf-SS-2.jpeg",
   "/assets/Elder-Leaf/Elder-Leaf-SS-3.jpeg",
   "/assets/Elder-Leaf/Elder-Leaf-SS-4.jpeg",
-
 ];
 
 const GAMES = [
@@ -49,7 +60,7 @@ const GAMES = [
     number: "01",
     slug: "hoppity-hop",
     title: "Hoppity-Hop",
-    image: "/assets/OurGames/hoppity-hop.png",
+    image: "/assets/OurGames/hoppity-hop.jpeg",
     video: VIDEO_HOPPITY_HOP,
     screenshots: SHOTS_HOPPITY_HOP,
     description:
@@ -116,6 +127,51 @@ const GAMES = [
   },
   {
     number: "02",
+    slug: "workaround",
+    title: "Workaround and Find out",
+    image: "/assets/OurGames/workaround.jpeg",
+    video: VIDEO_WORKAROUND,
+    screenshots: SHOTS_WORKAROUND,
+    description:
+      "This game offers a TWO player couch co-op experience in which both the players play as Swig and Zoma using only one keyboard. Silvermane, a lunatic kidnaps Swig and Zoma and makes them play minigames on the verge of their lives. Both of them must play the minigames and according to Silvermane only one of them survives. BUT Silvermane is having issues with his stomach. So, whenever he is in washroom, both Swig and Zoma find out crap pieces, pick them up in SAME ORDER as one another, do some JUGAAD and try making a weapon in order to survive Silvermane's Trial.",
+    team: [
+      {
+        name: "Raghav Lakhanpal",
+        roles: [
+          "Game Direction",
+          "3D Character Design & Modelling"
+        ],
+      },
+      {
+        name: "Heer Lalwani",
+        roles: [
+          "3D Asset Design"
+        ],
+      },
+      {
+        name: "Rimee Jain",
+        roles: [
+          "3D Asset Design"
+        ],
+      },
+      {
+        name: "Aryan Sachan",
+        roles: [
+          "Level Design",
+          "3D Asset Design"
+        ],
+      },
+      {
+        name: "Mridul Sharma",
+        roles: [
+          "Systems & Gameplay Development",
+          "Cinematics"
+        ],
+      }
+    ],
+  },
+  {
+    number: "03",
     slug: "handmade-faces",
     title: "Handmade Faces",
     image: "/assets/OurGames/handmade-faces.png",
@@ -123,47 +179,35 @@ const GAMES = [
     screenshots: SHOTS_HANDMADE_FACES,
     description:
       "Handmade Faces is a quirky, fast-paced game where you pack, sort, and organize boxes while navigating a world full of handmade charm. A fun little game jam experience focused on creativity, chaos, and satisfying box-packing gameplay. ",
-     team: [
+    team: [
       {
         name: "Raghav Lakhanpal",
         roles: [
           "Game Direction",
           "Cutscenes & Dialogue Writing",
-          "General Artist"
+          "General Artist",
         ],
       },
       {
         name: "Heer Lalwani",
-        roles: [
-          "General Artist",
-          "UI/UX"
-        ],
+        roles: ["General Artist", "UI/UX"],
       },
       {
         name: "Rimee Jain",
-        roles: [
-          "General Artist",
-          "UI/UX"
-        ],
+        roles: ["General Artist", "UI/UX"],
       },
       {
         name: "Aryan Sachan",
-        roles: [
-          "General Artist",
-          "UI/UX"
-        ],
+        roles: ["General Artist", "UI/UX"],
       },
       {
         name: "Mridul Sharma",
-        roles: [
-          "Game Dev",
-          "Polishing and QA"
-        ],
-      }
+        roles: ["Game Dev", "Polishing and QA"],
+      },
     ],
   },
   {
-    number: "03",
+    number: "04",
     slug: "elder-leaf",
     title: "Elder Leaf",
     image: "/assets/OurGames/elder-leaf.png",
@@ -178,43 +222,25 @@ const GAMES = [
           "Game Direction",
           "Cutscenes & Dialogue Writing",
           "Game Dev",
-          "General Artist"
+          "General Artist",
         ],
       },
       {
         name: "Heer Lalwani",
-        roles: [
-          "Pixel Artist",
-          "Animator",
-          "UI/UX",
-          "Character Art"
-        ],
+        roles: ["Pixel Artist", "Animator", "UI/UX", "Character Art"],
       },
       {
         name: "Rimee Jain",
-        roles: [
-          "Pixel Artist",
-          "Animator",
-          "UI/UX",
-          "Environment Art"
-        ],
+        roles: ["Pixel Artist", "Animator", "UI/UX", "Environment Art"],
       },
       {
         name: "Aryan Sachan",
-        roles: [
-         "Pixel Artist",
-          "Animator",
-          "Level Design",
-          "Environment Art"
-        ],
+        roles: ["Pixel Artist", "Animator", "Level Design", "Environment Art"],
       },
       {
         name: "Aaditya Kadam",
-        roles: [
-          "Game Dev",
-          "Polishing and QA"
-        ],
-      }
+        roles: ["Game Dev", "Polishing and QA"],
+      },
     ],
   },
 ];
@@ -423,13 +449,18 @@ function PageFooter() {
     <footer id="contact" className="page-footer">
       <div className="page-footer-inner">
         <div className="page-footer-left">
-          <img src="/assets/wurtz-logo.png" alt="Wurtz' Interactive" className="page-footer-logo" />
-          <a href="mailto:wurtzinteractive@gmail.com" className="page-footer-email">
+          <img
+            src="/assets/wurtz-logo.png"
+            alt="Wurtz' Interactive"
+            className="page-footer-logo"
+          />
+          <a
+            href="mailto:wurtzinteractive@gmail.com"
+            className="page-footer-email"
+          >
             wurtzinteractive@gmail.com
           </a>
         </div>
-
-      
       </div>
     </footer>
   );
@@ -508,7 +539,6 @@ function Intro({ onComplete }) {
         <div ref={logoRef} className="intro-logo" aria-hidden="true">
           <img src="/assets/wurtz-logo.png" alt="Wurtz' Interactive" />
         </div>
-        
       </div>
     </div>
   );
@@ -599,7 +629,9 @@ function Header({ menuOpen, setMenuOpen }) {
     setMenuOpen(false);
     const id = `member-${name.toLowerCase().replace(/\s+/g, "-")}`;
     const scrollToCard = () =>
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "center" });
+      document
+        .getElementById(id)
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
 
     if (readRoute() !== "/") {
       navigate("/");
@@ -677,7 +709,9 @@ function Header({ menuOpen, setMenuOpen }) {
       <div ref={menuRef} className={`nav-menu ${menuOpen ? "open" : ""}`}>
         <nav>
           {/* Home & Contact — plain links, no subsections */}
-          <button className="nav-main" onClick={() => handleNav("home")}>Home</button>
+          <button className="nav-main" onClick={() => handleNav("home")}>
+            Home
+          </button>
 
           {/* Games — with one sub-item per game */}
           <HamburgerGroup
@@ -702,7 +736,9 @@ function Header({ menuOpen, setMenuOpen }) {
             }))}
           />
 
-          <button className="nav-main" onClick={() => handleNav("contact")}>Contact</button>
+          <button className="nav-main" onClick={() => handleNav("contact")}>
+            Contact
+          </button>
         </nav>
       </div>
     </>
@@ -721,7 +757,10 @@ function Home() {
         preload="auto"
         aria-hidden="true"
       >
-        <source src="https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/home-video.mp4" type="video/mp4" />
+        <source
+          src="https://pub-a28c986f3a66413d805e962fe4853256.r2.dev/home-video.mp4"
+          type="video/mp4"
+        />
       </video>
 
       <div className="home-video-overlay" />
@@ -859,7 +898,7 @@ function Games() {
   /* Center the active slide once the DOM has laid out */
   useEffect(() => {
     goToSlide(activeIndex, false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -1031,7 +1070,7 @@ function DragCarousel({ items, label }) {
     startScroll: 0,
     lastX: 0,
     lastTime: 0,
-    velocity: 0,   // px/ms — tracked for momentum on release
+    velocity: 0, // px/ms — tracked for momentum on release
   });
 
   const onPointerDown = (event) => {
@@ -1087,7 +1126,10 @@ function DragCarousel({ items, label }) {
       const momentum = velocity * 420; /* tune: higher = longer coast */
       const target = Math.max(
         0,
-        Math.min(track.scrollLeft + momentum, track.scrollWidth - track.clientWidth),
+        Math.min(
+          track.scrollLeft + momentum,
+          track.scrollWidth - track.clientWidth,
+        ),
       );
 
       gsap.to(track, {
@@ -1131,12 +1173,19 @@ function GamePage({ game }) {
     return (
       <section className="section game-missing">
         <h2>Game not found</h2>
-        <button className="game-back" onClick={() => {
-          navigate("/");
-          requestAnimationFrame(() => requestAnimationFrame(() =>
-            document.getElementById("games")?.scrollIntoView({ behavior: "smooth" })
-          ));
-        }}>
+        <button
+          className="game-back"
+          onClick={() => {
+            navigate("/");
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() =>
+                document
+                  .getElementById("games")
+                  ?.scrollIntoView({ behavior: "smooth" }),
+              ),
+            );
+          }}
+        >
           ← Return to Our Games
         </button>
       </section>
@@ -1168,12 +1217,19 @@ function GamePage({ game }) {
       </div>
 
       <div className="game-page-inner">
-        <button className="game-back" onClick={() => {
-          navigate("/");
-          requestAnimationFrame(() => requestAnimationFrame(() =>
-            document.getElementById("games")?.scrollIntoView({ behavior: "smooth" })
-          ));
-        }}>
+        <button
+          className="game-back"
+          onClick={() => {
+            navigate("/");
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() =>
+                document
+                  .getElementById("games")
+                  ?.scrollIntoView({ behavior: "smooth" }),
+              ),
+            );
+          }}
+        >
           ← Return to Our Games
         </button>
 
@@ -1248,6 +1304,5 @@ function GamePage({ game }) {
     </article>
   );
 }
-
 
 createRoot(document.getElementById("root")).render(<App />);
